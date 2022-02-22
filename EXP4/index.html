@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://unpkg.com/d3-simple-slider"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <div id="map"></div>
+    <div id="tooltip"></div>
+    <div id="key"></div>
+
+    <h3>Year</h3>
+    <div id="slider">
+      <input id="year" type="range" min="1999" max="2017" step="1" value="2017" list="ticks" oninput="rangevalue.value=value"/>
+      <datalist id="ticks">
+        <option value="1999" label="1999"></option>
+        <option value="2000" label="2000"></option>
+        <option value="2001" label="2001"></option>
+        <option value="2002" label="2002"></option>
+        <option value="2003" label="2003"></option>
+        <option value="2004" label="2004"></option>
+        <option value="2005" label="2005"></option>
+        <option value="2006" label="2006"></option>
+        <option value="2007" label="2007"></option>
+        <option value="2008" label="2008"></option>
+        <option value="2009" label="2009"></option>
+        <option value="2010" label="2010"></option>
+        <option value="2011" label="2011"></option>
+        <option value="2012" label="2012"></option>
+        <option value="2013" label="2013"></option>
+        <option value="2014" label="2014"></option>
+        <option value="2015" label="2015"></option>
+        <option value="2016" label="2016"></option>
+        <option value="2017" label="2017"></option>
+        </datalist>
+        <output id="rangevalue">2017</output>
+    </div>
+    <script src="Viz.js"></script>
+  </body>
+</html>
