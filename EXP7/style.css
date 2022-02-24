@@ -1,0 +1,46 @@
+* {
+	font-family: "Ariel"
+}
+p {
+	font-size: 5em
+}
+/* Legend Font Style */
+body {
+	font: 15px sans-serif;
+}
+#map {
+	background: rgb(124, 229, 255);
+	border-radius: 4em;
+}
+
+/* Legend Position Style */
+.legend {
+	position:absolute;
+	left:20px;
+	top:30px;
+}
+
+.axis text {
+	font: 15px sans-serif;
+	fill: #000
+}
+
+.axis line, .axis path {
+	fill: none;
+	stroke: #000;
+	shape-rendering: crispEdges;
+}
+
+#year {
+	width: 1000px
+}
+
+#tooltip {
+	background-color: white;
+    border: solid;
+    border-width: 2px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+
