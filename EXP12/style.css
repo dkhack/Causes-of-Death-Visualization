@@ -1,0 +1,160 @@
+* {
+	font-family: "Ariel"
+}
+p {
+	font-size: 5em
+}
+/* Legend Font Style */
+body {
+	font: 15px sans-serif;
+}
+svg {
+	background: #EFE;
+}
+
+/* Legend Position Style */
+.legend {
+	position:absolute;
+	left:3%;
+	top:3%;
+	padding-bottom: 1em;
+}
+
+.axis text {
+	font: 15px sans-serif;
+	fill: #000
+}
+
+.axis line, .axis path {
+	fill: none;
+	stroke: #000;
+	shape-rendering: crispEdges;
+}
+
+#year {
+	width: 50%;
+	height: 10%;
+	position: absolute;
+	top: 72%;
+	left: 5.2%;
+}
+
+#rangevalue {
+	color: white;
+	position: absolute;
+	left: 30.3%;
+	top: 75%;
+}
+
+#tooltip {
+	background-color: white;
+    border: solid;
+    border-width: 2px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#topGraphsContainer {
+	position: absolute;
+	width: 99.5%;
+	height: 82%;
+	background: rgb(66, 60, 60);
+	border-radius: 0.25em;
+}
+
+/* Dropdown Buttons */
+.health-dropbtn {
+	background-color: #EFEFEF;
+	color: black;
+	padding: 16px;
+	font-size: 16px;
+	border-radius: none;
+  }
+
+.income-dropbtn {
+	background-color: #EFEFEF;
+	color: black;
+	padding: 16px;
+	font-size: 16px;
+	border-radius: none;
+  }
+
+  /* The container <div> - needed to position the dropdown content */
+  .health-dropdown {
+	position: absolute;
+	display: inline-block;
+	top: 2%;
+	left: 22%;
+  }
+
+  .income-dropdown {
+	position: absolute;
+	display: inline-block;
+	top: 2%;
+	left: 29%;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .health-dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f1f1f1;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+  }
+
+  .income-dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f1f1f1;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .health-dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+  }
+
+  .income-dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+  }
+  
+  /* Drop Down Actions */
+  .health-dropdown-content a:hover {background-color: #ddd;}
+  .health-dropdown:hover .health-dropdown-content {display: block;}
+  .health-dropdown:hover .health-dropbtn {background-color: #E71212;}
+
+  .income-dropdown-content a:hover {background-color: #ddd;}
+  .income-dropdown:hover .income-dropdown-content {display: block;}
+  .income-dropdown:hover .income-dropbtn {background-color: #258f41;}
+
+  #linegraph {
+	  position: absolute;
+	  left: 62%;
+	  top: 2%;
+  }
+
+#key {
+	position: absolute;
+	top: 12%;
+	left: 4%;
+}
+
+#map {
+	position: absolute;
+	top: 10%;
+	left: 2%;
+}
+
+#MapAxisText {
+	transform: rotate(90);
+}
