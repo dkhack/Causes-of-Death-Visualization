@@ -1,0 +1,261 @@
+* {
+	font-family: "Ariel"
+}
+p {
+	font-size: 5em
+}
+/* Legend Font Style */
+body {
+	font: 15px sans-serif;
+}
+svg {
+	background: #EFE;
+}
+
+/* Legend Position Style */
+.legend {
+	position:absolute;
+	left:3%;
+	top:3%;
+	padding-bottom: 1em;
+}
+
+.axis text {
+	font: 15px sans-serif;
+	fill: #000
+}
+
+.axis line, .axis path {
+	fill: none;
+	stroke: #000;
+	shape-rendering: crispEdges;
+}
+
+#year {
+	width: 40%;
+	height: 10%;
+	position: absolute;
+	top: 72%;
+	left: 5.2%;
+}
+
+#year2 {
+	width: 40%;
+	height: 10%;
+	position: absolute;
+	top: 72%;
+	left: 54.5%;
+}
+
+#rangevalue {
+	color: white;
+	position: absolute;
+	left: 24.5%;
+	top: 75%;
+}
+
+#rangevalue2 {
+	color: white;
+	position: absolute;
+	left: 73.9%;
+	top: 75%;
+}
+
+#tooltip {
+	background-color: white;
+    border: solid;
+    border-width: 2px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#topGraphsContainer {
+	position: absolute;
+	width: 99.5%;
+	height: 160%;
+	background: rgb(66, 60, 60);
+	border-radius: 0.25em;
+}
+
+/* Dropdown Buttons */
+.health-dropbtn {
+	background-color: #EFEFEF;
+	color: black;
+	padding: 16px;
+	font-size: 16px;
+	border-radius: none;
+  }
+
+.income-dropbtn {
+	background-color: #EFEFEF;
+	color: black;
+	padding: 16px;
+	font-size: 16px;
+	border-radius: none;
+  }
+
+  .health-dropbtn2 {
+	background-color: #EFEFEF;
+	color: black;
+	padding: 16px;
+	font-size: 16px;
+	border-radius: none;
+  }
+
+.income-dropbtn2 {
+	background-color: #EFEFEF;
+	color: black;
+	padding: 16px;
+	font-size: 16px;
+	border-radius: none;
+  }
+
+  /* The container <div> - needed to position the dropdown content */
+  .health-dropdown {
+	position: absolute;
+	display: inline-block;
+	top: 2%;
+	left: 18%;
+  }
+
+  .income-dropdown {
+	position: absolute;
+	display: inline-block;
+	top: 2%;
+	left: 25%;
+  }
+
+  .health-dropdown2 {
+	position: absolute;
+	display: inline-block;
+	top: 2%;
+	left: 68%;
+  }
+
+  .income-dropdown2 {
+	position: absolute;
+	display: inline-block;
+	top: 2%;
+	left: 75%;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .health-dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f1f1f1;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+  }
+
+  .income-dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f1f1f1;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+  }
+
+  .health-dropdown-content2 {
+	display: none;
+	position: absolute;
+	background-color: #f1f1f1;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+  }
+
+  .income-dropdown-content2 {
+	display: none;
+	position: absolute;
+	background-color: #f1f1f1;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .health-dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+  }
+
+  .income-dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+  }
+
+  .health-dropdown-content2 a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+  }
+
+  .income-dropdown-content2 a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+  }
+  
+  /* Drop Down Actions */
+  .health-dropdown-content a:hover {background-color: #ddd;}
+  .health-dropdown:hover .health-dropdown-content {display: block;}
+  .health-dropdown:hover .health-dropbtn {background-color: #E71212;}
+
+  .income-dropdown-content a:hover {background-color: #ddd;}
+  .income-dropdown:hover .income-dropdown-content {display: block;}
+  .income-dropdown:hover .income-dropbtn {background-color: #258f41;}
+
+  .health-dropdown-content2 a:hover {background-color: #ddd;}
+  .health-dropdown2:hover .health-dropdown-content2 {display: block;}
+  .health-dropdown2:hover .health-dropbtn2 {background-color: #E71212;}
+
+  .income-dropdown-content2 a:hover {background-color: #ddd;}
+  .income-dropdown2:hover .income-dropdown-content2 {display: block;}
+  .income-dropdown2:hover .income-dropbtn2 {background-color: #258f41;}
+
+  #linegraph {
+	  position: absolute;
+	  left: 32.5%;
+	  top: 90%;
+  }
+
+#key {
+	position: absolute;
+	top: 12%;
+	left: 3%;
+}
+
+#map {
+	position: absolute;
+	top: 10%;
+	left: 2%;
+}
+
+#MapAxisText {
+	transform: rotate(90);
+}
+
+#MapAxisText2 {
+	transform: rotate(90);
+}
+
+#map2 {
+	position: absolute;
+	top: 10%;
+	left: 51%;
+}
+
+#key2 {
+	position: absolute;
+	top: 12%;
+	left: 52%;
+}

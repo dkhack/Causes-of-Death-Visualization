@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://unpkg.com/d3-simple-slider"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <svg id="topGraphsContainer"></div>
+    <div id="map"></div>
+    <div id="map2"></div>
+    <div id="tooltip"></div>
+    <div id="dataToggle">
+      <input type="radio" name="dataset" onclick='fileSet("DeathCause.csv")' value="DeathCause" checked> Cause of Death<br>
+      <input type="radio" name="dataset" onclick='fileSet("Income.csv")' value="Income"> Income<br>
+    </div>
+
+    <div id="slider">
+      <input id="year" type="range" min="2005" max="2015" step="1" value="2015" list="ticks" oninput="rangevalue.value=value"/>
+      <datalist id="ticks">
+        <option value="1999" label="1999"></option>
+        <option value="2000" label="2000"></option>
+        <option value="2001" label="2001"></option>
+        <option value="2002" label="2002"></option>
+        <option value="2003" label="2003"></option>
+        <option value="2004" label="2004"></option>
+        <option value="2005" label="2005"></option>
+        <option value="2006" label="2006"></option>
+        <option value="2007" label="2007"></option>
+        <option value="2008" label="2008"></option>
+        <option value="2009" label="2009"></option>
+        <option value="2010" label="2010"></option>
+        <option value="2011" label="2011"></option>
+        <option value="2012" label="2012"></option>
+        <option value="2013" label="2013"></option>
+        <option value="2014" label="2014"></option>
+        <option value="2015" label="2015"></option>
+        <option value="2016" label="2016"></option>
+        <option value="2017" label="2017"></option>
+        </datalist>
+        <output id="rangevalue">2015</output>
+    </div>
+
+    <div id="slider2">
+      <input id="year2" type="range" min="2005" max="2015" step="1" value="2015" list="ticks2" oninput="rangevalue2.value=value"/>
+      <datalist id="ticks2">
+        <option value="1999" label="1999"></option>
+        <option value="2000" label="2000"></option>
+        <option value="2001" label="2001"></option>
+        <option value="2002" label="2002"></option>
+        <option value="2003" label="2003"></option>
+        <option value="2004" label="2004"></option>
+        <option value="2005" label="2005"></option>
+        <option value="2006" label="2006"></option>
+        <option value="2007" label="2007"></option>
+        <option value="2008" label="2008"></option>
+        <option value="2009" label="2009"></option>
+        <option value="2010" label="2010"></option>
+        <option value="2011" label="2011"></option>
+        <option value="2012" label="2012"></option>
+        <option value="2013" label="2013"></option>
+        <option value="2014" label="2014"></option>
+        <option value="2015" label="2015"></option>
+        <option value="2016" label="2016"></option>
+        <option value="2017" label="2017"></option>
+        </datalist>
+        <output id="rangevalue2">2015</output>
+    </div>
+
+    <div id="linegraph"></div>
+    
+    <div class="health-dropdown">
+      <button class="health-dropbtn">Cause of Death</button>
+      <div id="deathDropDown" class="health-dropdown-content">
+        <a onclick="DropDownClick('DeathCause.csv','All causes')">All causes</a>
+        <a onclick="DropDownClick('DeathCause.csv','Heart disease')">Heart disease</a>
+        <a onclick="DropDownClick('DeathCause.csv','Cancer')">Cancer</a>
+        <a onclick="DropDownClick('DeathCause.csv','Unintentional injuries')">Unintentional injuries</a>
+        <a onclick="DropDownClick('DeathCause.csv','CLRD')">CLRD</a>
+        <a onclick="DropDownClick('DeathCause.csv','Stroke')">Stroke</a>
+        <a onclick='DropDownClick("DeathCause.csv","Alzheimers disease")'>Alzheimer's disease</a>
+        <a onclick="DropDownClick('DeathCause.csv','Diabetes')">Diabetes</a>
+        <a onclick="DropDownClick('DeathCause.csv','Influenza and pneumonia')">Influenza and pneumonia</a>
+        <a onclick="DropDownClick('DeathCause.csv','Kidney disease')">Kidney disease</a>
+        <a onclick="DropDownClick('DeathCause.csv','Suicide')">Suicide</a>
+      </div>
+    </div>
+    <div class="income-dropdown">
+      <button class="income-dropbtn">Economic/Demographic</button>
+      <div id="incomeDropDown" class="income-dropdown-content">
+        <a onclick="DropDownClick('Income.csv','GDP')">GDP</a>
+        <a onclick="DropDownClick('Income.csv','Log(GDP)')">Log(GDP)</a>
+        <a onclick="DropDownClick('Income.csv','Labor Force Participation')">Labor Force Participation</a>
+        <a onclick="DropDownClick('Income.csv','People with less than 9 years of education/people with college degree or above')">People with less than 9 years of education/people with college degree or above</a>
+        <a onclick="DropDownClick('Income.csv','Unemployment rate')">Unemployment rate</a>
+        <a onclick="DropDownClick('Income.csv','Average household size')">Average household size</a>
+        <a onclick="DropDownClick('Income.csv','Poverty rate')">Poverty rate</a>
+        <a onclick="DropDownClick('Income.csv','Number of corruption convictions per 1,000,000 people')">Number of corruption convictions per 1,000,000 people</a>
+        <a onclick="DropDownClick('Income.csv','Gini coefficient')">Gini coefficient</a>
+        <a onclick="DropDownClick('Income.csv','Black/white')">Black/white</a>
+        <a onclick="DropDownClick('Income.csv','Hispanic/white')">Hispanic/white</a>
+      </div>
+    </div>
+
+    <div class="health-dropdown2">
+      <button class="health-dropbtn2">Cause of Death</button>
+      <div id="deathDropDown2" class="health-dropdown-content2">
+        <a onclick="DropDownClick2('DeathCause.csv','All causes')">All causes</a>
+        <a onclick="DropDownClick2('DeathCause.csv','Heart disease')">Heart disease</a>
+        <a onclick="DropDownClick2('DeathCause.csv','Cancer')">Cancer</a>
+        <a onclick="DropDownClick2('DeathCause.csv','Unintentional injuries')">Unintentional injuries</a>
+        <a onclick="DropDownClick2('DeathCause.csv','CLRD')">CLRD</a>
+        <a onclick="DropDownClick2('DeathCause.csv','Stroke')">Stroke</a>
+        <a onclick='DropDownClick2("DeathCause.csv","Alzheimers disease")'>Alzheimer's disease</a>
+        <a onclick="DropDownClick2('DeathCause.csv','Diabetes')">Diabetes</a>
+        <a onclick="DropDownClick2('DeathCause.csv','Influenza and pneumonia')">Influenza and pneumonia</a>
+        <a onclick="DropDownClick2('DeathCause.csv','Kidney disease')">Kidney disease</a>
+        <a onclick="DropDownClick2('DeathCause.csv','Suicide')">Suicide</a>
+      </div>
+    </div>
+    <div class="income-dropdown2">
+      <button class="income-dropbtn2">Economic/Demographic</button>
+      <div id="incomeDropDown2" class="income-dropdown-content2">
+        <a onclick="DropDownClick2('Income.csv','GDP')">GDP</a>
+        <a onclick="DropDownClick2('Income.csv','Log(GDP)')">Log(GDP)</a>
+        <a onclick="DropDownClick2('Income.csv','Labor Force Participation')">Labor Force Participation</a>
+        <a onclick="DropDownClick2('Income.csv','People with less than 9 years of education/people with college degree or above')">People with less than 9 years of education/people with college degree or above</a>
+        <a onclick="DropDownClick2('Income.csv','Unemployment rate')">Unemployment rate</a>
+        <a onclick="DropDownClick2('Income.csv','Average household size')">Average household size</a>
+        <a onclick="DropDownClick2('Income.csv','Poverty rate')">Poverty rate</a>
+        <a onclick="DropDownClick2('Income.csv','Number of corruption convictions per 1,000,000 people')">Number of corruption convictions per 1,000,000 people</a>
+        <a onclick="DropDownClick2('Income.csv','Gini coefficient')">Gini coefficient</a>
+        <a onclick="DropDownClick2('Income.csv','Black/white')">Black/white</a>
+        <a onclick="DropDownClick2('Income.csv','Hispanic/white')">Hispanic/white</a>
+      </div>
+    </div>
+
+    <script src="map.js"></script>
+  </body>
+</html>
