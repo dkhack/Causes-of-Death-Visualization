@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://unpkg.com/d3-simple-slider"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <div id="map"></div>
+    <div id="map2"></div>
+    <div id="map3"></div>
+
+    <div id="yeartext"></div>
+    <div id="slider">
+      <input id="year" type="range" min="2006" max="2014" step="2" value="2014" class='slider' list="ticks" oninput="rangevalue.value=value"/>
+    </div>
+
+    <div id="linegraph"></div>
+    
+    <div class="health-dropdown">
+      <button class="health-dropbtn">Cause of Death</button>
+      <div id="deathDropDown" class="health-dropdown-content">
+        <a onclick="DropDownClick('DeathCause.csv','All causes')">All causes</a>
+        <a onclick="DropDownClick('DeathCause.csv','Heart disease')">Heart disease</a>
+        <a onclick="DropDownClick('DeathCause.csv','Cancer')">Cancer</a>
+        <a onclick="DropDownClick('DeathCause.csv','Unintentional injuries')">Unintentional injuries</a>
+        <a onclick="DropDownClick('DeathCause.csv','CLRD')">CLRD</a>
+        <a onclick="DropDownClick('DeathCause.csv','Stroke')">Stroke</a>
+        <a onclick='DropDownClick("DeathCause.csv","Alzheimers disease")'>Alzheimer's disease</a>
+        <a onclick="DropDownClick('DeathCause.csv','Diabetes')">Diabetes</a>
+        <a onclick="DropDownClick('DeathCause.csv','Influenza and pneumonia')">Influenza and pneumonia</a>
+        <a onclick="DropDownClick('DeathCause.csv','Kidney disease')">Kidney disease</a>
+        <a onclick="DropDownClick('DeathCause.csv','Suicide')">Suicide</a>
+      </div>
+    </div>
+
+    <div class="income-dropdown2">
+      <button class="income-dropbtn2">Economic/Demographic</button>
+      <div id="incomeDropDown2" class="income-dropdown-content2">
+        <a onclick="DropDownClick2('Income.csv','GDP')">GDP</a>
+        <a onclick="DropDownClick2('Income.csv','Log(GDP)')">Log(GDP)</a>
+        <a onclick="DropDownClick2('Income.csv','Labor Force Participation')">Labor Force Participation</a>
+        <a onclick="DropDownClick2('Income.csv','People with less than 9 years of education/people with college degree or above')">People with less than 9 years of education/people with college degree or above</a>
+        <a onclick="DropDownClick2('Income.csv','Unemployment rate')">Unemployment rate</a>
+        <a onclick="DropDownClick2('Income.csv','Average household size')">Average household size</a>
+        <a onclick="DropDownClick2('Income.csv','Poverty rate')">Poverty rate</a>
+        <a onclick="DropDownClick2('Income.csv','Number of corruption convictions per 1,000,000 people')">Number of corruption convictions per 1,000,000 people</a>
+        <a onclick="DropDownClick2('Income.csv','Gini coefficient')">Gini coefficient</a>
+        <a onclick="DropDownClick2('Income.csv','Black/white')">Black/white</a>
+        <a onclick="DropDownClick2('Income.csv','Hispanic/white')">Hispanic/white</a>
+      </div>
+    </div>
+
+    <div class="politics-dropdown3">
+      <button class="politics-dropbtn3">Political Data</button>
+      <div id="politicsDropDown3" class="politics-dropdown-content3">
+        <a onclick="DropDownClick3('Income.csv','GDP')">GDP</a>
+        <a onclick="DropDownClick3('Income.csv','Log(GDP)')">Log(GDP)</a>
+        <a onclick="DropDownClick3('Income.csv','Labor Force Participation')">Labor Force Participation</a>
+        <a onclick="DropDownClick3('Income.csv','People with less than 9 years of education/people with college degree or above')">People with less than 9 years of education/people with college degree or above</a>
+        <a onclick="DropDownClick3('Income.csv','Unemployment rate')">Unemployment rate</a>
+        <a onclick="DropDownClick3('Income.csv','Average household size')">Average household size</a>
+        <a onclick="DropDownClick3('Income.csv','Poverty rate')">Poverty rate</a>
+        <a onclick="DropDownClick3('Income.csv','Number of corruption convictions per 1,000,000 people')">Number of corruption convictions per 1,000,000 people</a>
+        <a onclick="DropDownClick3('Income.csv','Gini coefficient')">Gini coefficient</a>
+        <a onclick="DropDownClick3('Income.csv','Black/white')">Black/white</a>
+        <a onclick="DropDownClick3('Income.csv','Hispanic/white')">Hispanic/white</a>
+      </div>
+    </div>
+    
+    <div id ="bar-chart"></div>
+
+    <script src="map.js" id="morepadding"></script>
+  </body>
+</html>
