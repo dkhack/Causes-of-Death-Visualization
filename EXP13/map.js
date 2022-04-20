@@ -195,7 +195,9 @@ function updateMap(start,year,measure) {
 	// Load data
 	d3.csv(file, function(data) {
 		var dataArray = [];
+		
 		var simpleData = data.filter(function(entry) {
+
 			if(entry.year == year & entry.measure == measure & entry.state != 'United States'){
 				return entry;
 			}
@@ -203,8 +205,10 @@ function updateMap(start,year,measure) {
 		})
 	
 		for (var i = 0; i < simpleData.length; i++) {
-			dataArray.push(parseFloat(simpleData[i].value))		
+			dataArray.push(parseFloat(simpleData[i].value))
+			
 		}
+		
 		//console.log(simpleData)
 		//console.log(dataArray)
 		
@@ -282,6 +286,8 @@ function updateMap(start,year,measure) {
 			}
 				function handleClick(d) {
 					drawGraph(file, d.properties.name, measure, highColor, false)
+					drawGraph3(file,d.properties.name,curr_year)
+					
 				}
 				function handleMouseOver(d) {
 					tooltip.text(d.properties.name + ": " + internationalNumberFormat.format(d.properties.value));
@@ -410,11 +416,11 @@ function updateMap2(start,year,measure) {
 					.on("mouseover", handleMouseOver)
 					.on("mousemove", function(){return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");})
 					.on("mouseout", handleMouseOut)
-					.on("click", handleClick)
+					.on("click", handleClick)  //this for updating scatterplot
 					;
 			}
 				function handleClick(d) {
-					drawGraph2(file2, d.properties.name, measure, highColor, false)
+					drawGraph2(file2, d.properties.name, measure, highColor, false)  //drawGraph2 updates scatterplot
 				}
 				function handleMouseOver(d) {
 					tooltip.text(d.properties.name + ": " + internationalNumberFormat.format(d.properties.value));
@@ -451,6 +457,10 @@ function updateMap2(start,year,measure) {
 	});
 }
 
+
+
+
+
 // Linegraph
 var graphmargin = {top: 60, right: 100, bottom: 70, left: 100},
 			graphwidth = 700 - graphmargin.left - graphmargin.right,
@@ -481,6 +491,76 @@ svg.append("g")
 	svg.append("g")
 		.attr("class","myYaxis2")
 
+
+//bar - graph
+const barWidth = 400
+const barHeight = 600
+const barmargin = {top:50, bottom:50, left: 50, right: 50}
+const svg1 = d3.select('#bar-chart')
+	.append('svg')
+	.attr('height', barHeight - barmargin.top - barmargin.bottom)
+	.attr('width', barWidth - barmargin.left-barmargin.right)
+	.attr('viewBox',[0,0,barWidth,barHeight]);
+	
+svg1.append("g")
+	 .attr('class','mybargraph');
+
+function drawGraph3(file, state,year) {
+	console.log(year)
+	d3.csv(file,function(data){
+		var graphData = data.filter(function(entry){
+			if(entry.state == state && entry.year == year && entry.measure != "All causes"){
+				entry.value = +entry.value
+				return entry;
+			}
+		})
+		console.log((graphData))
+		
+		updateBarGraph(graphData)
+
+		function updateBarGraph(graphData){
+			const barWidth = 400
+			const barHeight = 600
+			const barmargin = {top:50, bottom:50, left: 160, right: 50}
+
+			const innerWidth = barWidth - barmargin.left - barmargin.right
+			const innerHeight = barHeight - barmargin.top - barmargin.bottom
+			
+			const xScale = d3.scaleLinear()
+				.domain([0, d3.max(graphData, d => d.value)])
+				.range([0, innerWidth]);
+			
+			const yScale = d3.scaleBand()
+				.domain(graphData.map(d => d.measure))
+				.range([0, innerHeight])
+				.padding(0.1);
+			
+			console.log(yScale.range());
+
+			
+			
+
+			//console.log(xScale.domain());
+			//console.log(xScale.range());
+
+			const g= svg1.append('g')
+				.attr('transform', `translate(${barmargin.left}, ${barmargin.top})`);
+
+			
+			g.append('g').call(d3.axisLeft(yScale));	
+			g.append('g').call(d3.axisBottom(xScale))
+				.attr('transform', `translate(0, ${innerHeight})`);
+
+			g.selectAll('rect').data(graphData)
+				.enter().append('rect')
+				.attr('y', d => yScale(d.measure))
+				.attr('width', d => xScale(d.value))
+				.attr('height', 40);
+		}
+	})
+
+}
+
 function drawGraph(file, state, measure, color,start) {
 	function sortByKey(array, key) {
 		return array.sort(function(a, b) {
@@ -495,6 +575,7 @@ function drawGraph(file, state, measure, color,start) {
 				return entry;
 			}
 		})
+		//console.log(graphData)
 		var minVal = parseFloat(graphData[0].value)
 		var maxVal = parseFloat(graphData[0].value)
 		graphData = sortByKey(graphData, "year")

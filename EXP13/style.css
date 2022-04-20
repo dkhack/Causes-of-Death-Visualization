@@ -4,6 +4,8 @@
 p {
 	font-size: 5em
 }
+
+
 /* Legend Font Style */
 body {
 	font: 15px sans-serif;
@@ -12,6 +14,14 @@ svg {
 	background: #EFE;
 }
 
+rect {
+	fill: steelblue;
+	
+}
+
+text {
+	font-size : 1.4em;
+}
 /* Legend Position Style */
 .legend {
 	position:absolute;
@@ -19,6 +29,8 @@ svg {
 	top:3%;
 	padding-bottom: 1em;
 }
+
+
 
 .axis text {
 	font: 15px sans-serif;
@@ -29,6 +41,15 @@ svg {
 	fill: none;
 	stroke: #000;
 	shape-rendering: crispEdges;
+}
+
+#bar-chart {
+	width: 50%;
+	height: 10%;
+	position: absolute;
+	top:100%;
+	left: 5.2%;
+	
 }
 
 #year {
@@ -247,6 +268,7 @@ svg {
 #MapAxisText2 {
 	transform: rotate(90);
 }
+
 
 #map2 {
 	position: absolute;
