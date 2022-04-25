@@ -298,10 +298,10 @@ var measure3 = "Democrat Vote %"
 var curr_year = 2014
 var measure_names = ["GDP","Labor Force Participation","People with less than 9 years of education/people with college degree or above",
 	"Unemployment rate","Average household size","Poverty rate","Number of corruption convictions per 1,000,000 people",
-	"Gini coefficient", "Black/white", "Hispanic/white","Democrat Vote %","Republican Vote %","Third Party Vote %"]
+	"Gini coefficient", "Black/white", "Hispanic/white","Democrat","Republican","Third Party"]
 var measure_descriptors = ["Dollars","Percentage of population working/seeking work","Ratio",
 	"Percentage of labor force unemployed","People per household","Percent of population in poverty","Ratio",
-	"Percentage of inequality","Ratio", "Ratio","Democrat Vote %","Republican Vote %","Third Party Vote %"]
+	"Percentage of inequality","Ratio", "Ratio","Democrat","Republican","Third Party"]
 
 function fileeqfile2() {
 	if(file==file2){return true}
@@ -1281,7 +1281,7 @@ function drawBar(file, state,year,start) {
 }
 
 //bar - graph2
-var bar2margin = {top: 50, right: 10, bottom: 30, left: 50},
+var bar2margin = {top: 50, right: 10, bottom: 30, left: 70},
     bar2width = 480 - bar2margin.left - bar2margin.right,
     bar2height = 445 - bar2margin.top - bar2margin.bottom;
 
@@ -1299,6 +1299,16 @@ bar2.append("text").attr("id","bar2title")
 	.text("Test")
 	.style("text-anchor", "middle")
 	.style("font-size","18px");
+
+bar2.append("text")
+	.attr("class","y label")
+	.attr("text-anchor", "end")
+	.attr("y",6)
+	.attr("dy", ".75em")
+    .attr('transform', 'translate(-65,' + bar2height/3 + ')rotate(-90)')
+    .text("Percentage of votes")
+	.style("font-size","17px");
+
 
 drawBar2("House.csv","Alabama",2014,start=true)
 function drawBar2(file, state,year,start) {
@@ -1332,6 +1342,7 @@ function drawBar2(file, state,year,start) {
 					.style("text-anchor", "middle");
 
 				bar2.append("g").attr("class","Bar2yAxis")
+					
 					.call(d3.axisLeft(bar2y).tickFormat(formatPercent));
 
 				bar2.selectAll("rect")
