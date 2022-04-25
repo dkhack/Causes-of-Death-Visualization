@@ -26,21 +26,21 @@ var map = d3.select("#map")
   .attr("width", mapwidth - 250)
   .attr("height", mapheight)
   .style("background", mapcolor)
-  .style("border-radius","0.5em")
+  .style("border-radius","0.25em")
 
 var map2 = d3.select("#map2")
   .append("svg")
   .attr("width", mapwidth - 250)
   .attr("height", mapheight)
   .style("background", mapcolor)
-  .style("border-radius","0.5em")
+  .style("border-radius","0.25em")
 
 var map3 = d3.select("#map3")
   .append("svg")
   .attr("width", mapwidth - 250)
   .attr("height", mapheight)
   .style("background", mapcolor)
-  .style("border-radius","0.5em")
+  .style("border-radius","0.25em")
 
 // Chloropleth Titles
 map.append("text").attr("id","map1title")
@@ -74,7 +74,7 @@ var key = d3.select("#map")
 	.attr("class","map")
 	.attr("width", w)
 	.attr("height", h+20)
-	.style("border-radius","0.5em")
+	.style("border-radius","0.25em")
 	.style("background", mapcolor)
 	.attr("class", "legend");
 
@@ -128,7 +128,7 @@ var key2 = d3.select("#map2")
 	.attr("id", "key2")
 	.attr("width", w)
 	.attr("height", h+20)
-	.style("border-radius","0.5em")
+	.style("border-radius","0.25em")
 	.style("background", mapcolor)
 	.attr("class", "legend");
 
@@ -182,7 +182,7 @@ var key3 = d3.select("#map3")
 	.attr("id", "key3")
 	.attr("width", w)
 	.attr("height", h+20)
-	.style("border-radius","0.5em")
+	.style("border-radius","0.25em")
 	.style("background", mapcolor)
 	.attr("class", "legend");
 
@@ -900,7 +900,7 @@ function drawGraph(file, state, measure, color,start) {
 			.attr('text-anchor', 'middle')
 			.style('font-size', 18)
 			.style("fill", d3.rgb(color).darker(0.25))
-			.text(state + ": " + measure)
+			.text(state + ": Deaths by " + measure)
 			
 			// X label
 			svg.append('text')
@@ -937,7 +937,7 @@ function drawGraph(file, state, measure, color,start) {
 			svg.select('#titletext')
 				.transition()
 				.style("fill", d3.rgb(color).darker(0.25))
-				.text(state + ": " + measure)
+				.text(state + ": Deaths by " + measure)
 
 			if(file=="Income.csv"){
 				var i = measure_names.indexOf(measure)
@@ -1210,7 +1210,10 @@ function drawBar(file, state,year,start) {
 			}
 		})
 		//console.log((graphData))
-		
+		graphData.sort(function(x, y){
+			return d3.descending(x.value, y.value);
+		 })
+
 		updateBarGraph(graphData, start)
 		function updateBarGraph(graphData, start){
 			const barmargin = {top:50, bottom:50, left: 200, right: 50}
@@ -1246,10 +1249,11 @@ function drawBar(file, state,year,start) {
 
 				bar1.selectAll("#bar1title")
 					.data(graphData)
-					.text(function(d) { return d.year + " " + d.state + ": Deaths per 100,000 People"})
+					.text(function(d) { return d.state + " (" + d.year + "): Deaths per 100,000 People"})
 			}
 			else{
 				bar1.transition().duration(750).attr("opacity",1)
+				bar1.selectAll('g').select(".Bar1yAxis").transition().duration(750).call(d3.axisLeft(yScale)).attr("opacity",1)
 				bar1.selectAll('g').select(".Bar1xAxis").transition().duration(750).call(d3.axisBottom(xScale).ticks(5)).attr("opacity",1)
 				bar1.selectAll('rect').data(graphData)
 				.transition()
@@ -1261,7 +1265,7 @@ function drawBar(file, state,year,start) {
 				.attr("opacity",1)
 				bar1.selectAll("#bar1title")
 					.data(graphData)
-					.text(function(d) { return d.year + " " + d.state + ": Deaths per 100,000 People"})
+					.text(function(d) { return d.state + " (" + d.year + "): Deaths per 100,000 People"})
 			}
 		}
 	})
@@ -1334,7 +1338,7 @@ function drawBar2(file, state,year,start) {
 
 				bar2.selectAll("#bar2title")
 					.data(graphData)
-					.text(function(d) { return d.year + " " + d.state + ": U.S. House Votes by Party"})
+					.text(function(d) { return d.state + " (" + d.year + "): U.S. House Votes by Party"})
 			}
 			else {
 				bar2.selectAll("rect")
@@ -1346,7 +1350,7 @@ function drawBar2(file, state,year,start) {
 				
 				bar2.selectAll("#bar2title")
 					.data(graphData)
-					.text(function(d) { return d.year + " " + d.state + ": U.S. House Votes by Party"})
+					.text(function(d) { return d.state + " (" + d.year + "): U.S. House Votes by Party"})
 			}
 		}
 
@@ -1420,7 +1424,7 @@ var titleblock = d3.select("#titularbox")
 		'translate(' + 50 + ',' + -810 + ')')
 	  .attr("width", mapwidth * 2 + 392)
 	  .attr("height", 75)
-	  .style("background", "#4a8760")
+	  .style("background", "#18663e")
 	  .style("border-radius","0.5em")
 
 titleblock.append("text")
@@ -1429,3 +1433,27 @@ titleblock.append("text")
 	.text("The Tricorrelation Dashboard")
 	.style("fill","#f5f5f2")
 	.attr("font-size","25px")
+
+titleblock.append("line")
+	.style("stroke", "#E71212")
+	.style("stroke-width", 5)
+	.attr("x1", 402)
+	.attr("y1", 60)
+	.attr("x2", 730)
+	.attr("y2", 60);
+
+titleblock.append("line")
+	.style("stroke", "#38bd5b")
+	.style("stroke-width", 5)
+	.attr("x1", 805)
+	.attr("y1", 60)
+	.attr("x2", 1282)
+	.attr("y2", 60);
+
+titleblock.append("line")
+	.style("stroke", "#5c6ff0")
+	.style("stroke-width", 5)
+	.attr("x1", 1360)
+	.attr("y1", 60)
+	.attr("x2", 1655)
+	.attr("y2", 60);

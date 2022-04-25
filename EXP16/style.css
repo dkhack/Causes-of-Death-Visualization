@@ -9,7 +9,7 @@ html {
 	min-width: 100%;
 }
 body {
-	font: 12px sans-serif;
+	font: 14px sans-serif;
 	min-width: 100%;
 	background: #EFEFEF;
 }
@@ -19,7 +19,7 @@ body {
 	position:absolute;
 	left:20%;
 	top:0%;
-	padding-bottom: 1.25em;
+	padding-bottom: 1.05em;
 }
 
 .axis text {
@@ -114,7 +114,7 @@ body {
 	display: inline-block;
 	border-radius: 0.5em;
 	top: -790px;
-	left: 50%;
+	left: 47.5%;
 }
 
 .politics-dropdown3 {
@@ -122,7 +122,7 @@ body {
 	display: inline-block;
 	border-radius: 0.5em;
 	top: -790px;
-	left: 85%;
+	left: 78.4%;
 }
 
 /* Dropdown Content (Hidden by Default) */
@@ -182,7 +182,7 @@ body {
 
 .income-dropdown-content2 a:hover {background-color: #ddd;}
 .income-dropdown2:hover .income-dropdown-content2 {display: block;}
-.income-dropdown2:hover .income-dropbtn2 {background-color: #258f41;}
+.income-dropdown2:hover .income-dropbtn2 {background-color: #38bd5b;}
 
 .politics-dropdown-content3 a:hover {background-color: #ddd;}
 .politics-dropdown3:hover .politics-dropdown-content3 {display: block;}
@@ -284,47 +284,45 @@ body {
 	background-color: #EFEFEF;
 	color: black;
 	padding: 6px;
-	font-size: 12px;
+	font-size: 15px;
 	border-radius: 0.5em;
 
 	position: absolute;
 	display: inline-block;
-	left: 0%;
+	left: 33%;
+	top: -790px;
   }
 
 .income-btn1 {
 	background-color: #EFEFEF;
 	color: black;
 	padding: 6px;
-	font-size: 12px;
+	font-size: 15px;
 	border-radius: 0.5em;
 
 	position: absolute;
 	display: inline-block;
-	left: 69.8%;
+	left: 58.5%;
+	top: -790px;
   }
   
 .politics-btn1 {
 	background-color: #EFEFEF;
 	color: black;
 	padding: 6px;
-	font-size: 12px;
+	font-size: 15px;
 	border-radius: 0.5em;
 
 	position: absolute;
 	display: inline-block;
-	left: 78.65%;
-	top: 6%;
+	left: 84%;
+	top: -790px;
   }
 
 .health-btn1:hover {background-color: #E71212;}
-.income-btn1:hover {background-color: #258f41;}
+.income-btn1:hover {background-color: #38bd5b;}
 .politics-btn1:hover {background-color: #334ADC}
 
 #titlebox{
 	position: fixed;
 }
-
-/*#dashboard{
-	position: fixed;
-}*/

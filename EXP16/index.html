@@ -34,11 +34,7 @@
         </div>
       </div>
 
-      <div id="linegraph">
-        <button id="health-btn1" class="health-btn1"  onclick="graph1Clear()">Toggle Health Data Visibility</button>
-        <button id="income-btn1" class="income-btn1"  onclick="graph2Clear()">Toggle Economic/Demograph Data Visibility</button>
-        <button id="politics-btn1" class="politics-btn1"  onclick="graph3Clear()">Toggle Political Data Visibility</button>  
-      </div>
+      <div id="linegraph"></div>
       
 
       <div id ="bar-chart"></div>
@@ -49,7 +45,7 @@
     <div id="titularbox"></div>
 
     <div class="health-dropdown">
-      <button class="health-dropbtn">Cause of Death</button>
+      <button class="health-dropbtn">Cause of Death Data</button>
       <div id="deathDropDown" class="health-dropdown-content">
         <a onclick="DropDownClick('DeathCause.csv','All causes')">All causes</a>
         <a onclick="DropDownClick('DeathCause.csv','Heart disease')">Heart disease</a>
@@ -66,7 +62,7 @@
     </div>
 
     <div class="income-dropdown2">
-      <button class="income-dropbtn2">Economic/Demographic</button>
+      <button class="income-dropbtn2">Economic/Demographic Data</button>
       <div id="incomeDropDown2" class="income-dropdown-content2">
         <a onclick="DropDownClick2('Income.csv','GDP')">GDP</a>
         <a onclick="DropDownClick2('Income.csv','Labor Force Participation')">Labor Force Participation</a>
@@ -88,6 +84,10 @@
         <a onclick="DropDownClick3('House.csv','Democrat Vote %')">Democratic House Votes</a>
       </div>
     </div>
+
+    <button id="health-btn1" class="health-btn1"  onclick="graph1Clear()">Toggle Health Data Visibility</button>
+    <button id="income-btn1" class="income-btn1"  onclick="graph2Clear()">Toggle Economic/Demograph Data Visibility</button>
+    <button id="politics-btn1" class="politics-btn1"  onclick="graph3Clear()">Toggle Political Data Visibility</button>
 
   </div>
 
