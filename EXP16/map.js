@@ -1195,7 +1195,12 @@ bar1.append("text").attr("id","bar1title")
 	.text("Test")
 	.style("text-anchor", "middle")
 	.style("font-size","22px");
-
+bar1.append("text").attr("id","barXlabel")
+.attr("transform",
+'translate(' + barWidth/2 + ',' + barHeight + ')')
+.text("Total Death")
+.style("text-anchor", "middle")
+.style("font-size","22px");
 bar1.append("g")
 	 .attr('class','mybargraph');
 
@@ -1206,6 +1211,9 @@ function drawBar(file, state,year,start) {
 		var graphData = data.filter(function(entry){
 			if(entry.state == state && entry.year == year && entry.measure != "All causes"){
 				entry.value = +entry.value
+				if(entry.measure == "Influenza and pneumonia"){
+					entry.measure = "Influenza & pneumonia"
+				}
 				return entry;
 			}
 		})
