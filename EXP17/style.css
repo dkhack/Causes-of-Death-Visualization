@@ -1,0 +1,322 @@
+* {
+	font-family: "Ariel"
+}
+p {
+	font-size: 5em
+}
+/* Legend Font Style */
+html {
+	min-width: 100%;
+}
+body {
+	font: 14px sans-serif;
+	min-width: 100%;
+	background: #EFEFEF;
+}
+
+/* Legend Position Style */
+.legend {
+	position:absolute;
+	left:20%;
+	top:0%;
+	padding-bottom: 1.05em;
+}
+
+.axis text {
+	font: 15px sans-serif;
+	fill: #000
+}
+
+.axis line, .axis path {
+	fill: none;
+	stroke: #000;
+	shape-rendering: crispEdges;
+} 
+
+.yearAxis text {
+	font: 12px sans-serif;
+	fill: #000
+}
+
+.yearAxis line, .axis path {
+	fill: none;
+	stroke: #000;
+	shape-rendering: crispEdges;
+} 
+
+#slider {
+	width: 21.1vw;
+	height: 0.1vw;
+	position: absolute;
+	top: 14vw;
+	left: 0vw;
+}
+
+#slider2 {
+	width: 21.1vw;
+	height: 0.1vw;
+	position: absolute;
+	top: 14vw;
+	left: 0vw;
+}
+
+#slider3 {
+	width: 21.1vw;
+	height: 0.1vw;
+	position: absolute;
+	top: 14vw;
+	left: 0vw;
+}
+
+#tooltip {
+	background-color: white;
+    border: solid;
+    border-width: 2px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+/* Dropdown Buttons */
+.health-dropbtn {
+	background-color: #EFEFEF;
+	color: black;
+	padding: 6px;
+	font-size: 0.76vw;
+	border-radius: 0.5em;
+  }
+
+.income-dropbtn2 {
+	background-color: #EFEFEF;
+	color: black;
+	padding: 6px;
+	font-size: 0.76vw;
+	border-radius: 0.5em;
+  }
+
+.politics-dropbtn3 {
+	background-color: #EFEFEF;
+	color: black;
+	padding: 6px;
+	font-size: 0.76vw;
+	border-radius: 0.5em;
+  }
+
+/* The container <div> - needed to position the dropdown content */
+.health-dropdown {
+	position: absolute;
+	display: inline-block;
+	top: 2.5vh;
+	left: 23.7vw;
+}
+
+.income-dropdown2 {
+	position: absolute;
+	display: inline-block;
+	border-radius: 0.5em;
+	top: 2.5vh;
+	left: 44.1vw;
+}
+
+.politics-dropdown3 {
+	position: absolute;
+	display: inline-block;
+	border-radius: 0.5em;
+	top: 2.5vh;
+	left: 72.4vw;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.health-dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f1f1f1;
+	min-width: 50px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+}
+
+.income-dropdown-content2 {
+	display: none;
+	position: absolute;
+	background-color: #f1f1f1;
+	min-width: 100px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+}
+
+.politics-dropdown-content3 {
+	display: none;
+	position: absolute;
+	background-color: #f1f1f1;
+	min-width: 100px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+}
+  
+  /* Links inside the dropdown */
+.health-dropdown-content a {
+	color: black;
+	padding: 3px 10px;
+	text-decoration: none;
+	display: block;
+}
+
+.income-dropdown-content2 a {
+	color: black;
+	padding: 3px 10px;
+	text-decoration: none;
+	display: block;
+}
+
+.politics-dropdown-content3 a {
+	color: black;
+	padding: 3px 10px;
+	text-decoration: none;
+	display: block;
+}
+
+/* Drop Down Actions */
+.health-dropdown-content a:hover {background-color: #ddd;}
+.health-dropdown:hover .health-dropdown-content {display: block;}
+.health-dropdown:hover .health-dropbtn {background-color: #E71212;}
+
+.income-dropdown-content2 a:hover {background-color: #ddd;}
+.income-dropdown2:hover .income-dropdown-content2 {display: block;}
+.income-dropdown2:hover .income-dropbtn2 {background-color: #38bd5b;}
+
+.politics-dropdown-content3 a:hover {background-color: #ddd;}
+.politics-dropdown3:hover .politics-dropdown-content3 {display: block;}
+.politics-dropdown3:hover .politics-dropbtn3 {background-color: #334ADC}
+
+#map {
+	position: absolute;
+	top: 5.2vw;
+	left: 10.5vw;
+	padding-bottom: 10px;
+}
+
+#map2 {
+	position: absolute;
+	top: 5.2vw;
+	left: 41.5vw;
+	padding-bottom: 10px;
+}
+
+#map3 {
+	position: absolute;
+	top: 5.2vw;
+	left: 72.5vw;
+	padding-bottom: 10px;
+}
+
+#key {
+	position: absolute;
+	top: -0.3vh;
+	left: -7vw;
+}
+
+#key2 {
+	position: absolute;
+	top: -0.3vh;
+	left: -7vw;
+}
+
+#key3 {
+	position: absolute;
+	top: -0.3vh;
+	left: -7vw;
+}
+
+#linegraph {
+	position: absolute;
+	left: 30vw;
+	top: 23vw;
+	border-style: solid;
+}
+
+#bar-chart {
+	position: absolute;
+	top: 23vw;
+	left: 3.5vw;
+	background: #EFEFEF;
+	border-radius: 0.5em;
+	border-style: solid;
+}
+
+#bar-chart2 {
+	position: absolute;
+	top: 23vw;
+	left: 70.9vw;
+	background: #EFEFEF;
+	border-radius: 0.5em;
+	border-style: solid;
+}
+
+.Bar1xAxis {
+	font-size: 24px;
+}
+.Bar1yAxis {
+	font-size: 18px;
+}
+
+.Bar2xAxis {
+	font-size: 12px;
+}
+.Bar2yAxis {
+	font-size: 16px;
+}
+
+.health-btn1 {
+	background-color: #EFEFEF;
+	color: black;
+	padding: 6px;
+	font-size: 0.76vw;
+	border-radius: 0.5em;
+
+	position: absolute;
+	display: inline-block;
+	left: 31vw;
+	top: 2.5vh;
+  }
+
+.income-btn1 {
+	background-color: #EFEFEF;
+	color: black;
+	padding: 6px;
+	font-size: 0.76vw;
+	border-radius: 0.5em;
+
+	position: absolute;
+	display: inline-block;
+	left: 54.2vw;
+	top: 2.5vh;
+  }
+  
+.politics-btn1 {
+	background-color: #EFEFEF;
+	color: black;
+	padding: 6px;
+	font-size: 0.76vw;
+	border-radius: 0.5em;
+
+	position: absolute;
+	display: inline-block;
+	left: 77.5vw;
+	top: 2.5vh;
+  }
+
+.health-btn1:hover {background-color: #E71212;}
+.income-btn1:hover {background-color: #38bd5b;}
+.politics-btn1:hover {background-color: #334ADC}
+
+#titlebox{
+	position: absolute;
+	top: 1.5vh;
+	left: 3vw;
+}
+
+#dashboard{
+	position: absolute;
+	top: 1vh;
+	left: 0.5vw;
+}
